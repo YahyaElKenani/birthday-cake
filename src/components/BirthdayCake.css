@@ -1,0 +1,79 @@
+.cake-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Align candles to the bottom of this container */
+  margin-top: 40px;
+  position: relative; /* For candle positioning */
+}
+
+.cake {
+  position: relative;
+  width: 250px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frosting {
+  width: 100%;
+  height: 50px;
+  background-color: #fff0f5; /* Light pink frosting */
+  border-radius: 50% 50% 0 0 / 20px 20px 0 0; /* Rounded top */
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+.layer {
+  width: 100%;
+  height: 40px; /* Height of each cake layer */
+  background-color: #d2b48c; /* Tan cake color */
+  border: 2px solid #a0522d; /* Sienna for definition */
+  box-sizing: border-box;
+}
+
+.layer-top {
+  border-radius: 0; /* Will be mostly covered by frosting */
+  z-index: 1;
+}
+
+.layer-middle {
+  width: 95%; /* Slightly narrower */
+  margin: 0 auto;
+  background-color: #e6ccb2; /* Lighter layer */
+}
+
+.layer-bottom {
+  width: 100%;
+  border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+}
+
+.candles-container {
+  position: absolute;
+  top: -30px; /* Adjust to place candles on top of frosting */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Candles stand on their base */
+  gap: 10px; /* Space between candles */
+  z-index: 3; /* Above frosting */
+  padding: 0 10px; /* Ensure candles don't touch cake edges */
+}
+
+/* Responsive cake */
+@media (max-width: 400px) {
+  .cake {
+    width: 200px;
+  }
+  .frosting {
+    height: 40px;
+  }
+  .layer {
+    height: 35px;
+  }
+  .candles-container {
+    top: -25px;
+    gap: 8px;
+  }
+}

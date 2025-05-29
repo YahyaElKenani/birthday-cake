@@ -1,0 +1,69 @@
+.candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative; /* For flame positioning */
+  width: 15px; /* Width of the candle */
+}
+
+.wick {
+  width: 3px;
+  height: 8px;
+  background-color: #5a3e2b; /* Dark brown wick */
+  margin-bottom: -2px; /* Slightly overlap with wax */
+  z-index: 1;
+}
+
+.wax {
+  width: 100%;
+  height: 40px; /* Height of the candle wax */
+  background-color: #f8f8ff; /* Ghost white candle */
+  border: 1px solid #e0e0e0;
+  border-radius: 3px 3px 0 0; /* Slightly rounded top */
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.flame {
+  width: 12px;
+  height: 20px;
+  background-color: #ffac41; /* Orange flame */
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Flame shape */
+  position: absolute;
+  top: -25px; /* Position above the wick */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.5s infinite alternate;
+  box-shadow: 0 0 5px #ffac41, 0 0 10px #ffac41, 0 0 15px #ff6f00;
+}
+
+/* Flame flicker animation */
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scaleY(1) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scaleY(0.95) scaleX(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1.02) scaleX(0.98);
+    opacity: 1;
+  }
+}
+
+/* Responsive candle */
+@media (max-width: 400px) {
+  .candle {
+    width: 12px;
+  }
+  .wax {
+    height: 30px;
+  }
+  .flame {
+    width: 10px;
+    height: 18px;
+    top: -22px;
+  }
+}
